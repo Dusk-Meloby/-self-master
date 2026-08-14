@@ -1854,4 +1854,17 @@ function renderHomePage() {
 })();
 </script>
 </body>
+  /* ===== PWA Service Worker 注册 ===== */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(function(registration) {
+        console.log('ServiceWorker 注册成功');
+      })
+      .catch(function(err) {
+        console.log('ServiceWorker 注册失败', err);
+      });
+  });
+}
+
 </html>
